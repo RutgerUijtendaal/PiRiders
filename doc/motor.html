@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module motor</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>motor</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/pi/motor.py">/home/pi/motor.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="RPi.GPIO.html">RPi.GPIO</a><br>
+</td><td width="25%" valign=top><a href="constants.html">constants</a><br>
+</td><td width="25%" valign=top><a href="time.html">time</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="motor.html#Motor">Motor</a>
+</font></dt><dt><font face="helvetica, arial"><a href="motor.html#MotorController">MotorController</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Motor">class <strong>Motor</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Motor">Motor</a>&nbsp;Class&nbsp;handles&nbsp;the&nbsp;control&nbsp;of&nbsp;one&nbsp;of&nbsp;the&nbsp;wheels<br>
+&nbsp;<br>
+Stepper&nbsp;Motors&nbsp;require&nbsp;a&nbsp;series&nbsp;of&nbsp;4&nbsp;inputs&nbsp;(on/off).&nbsp;You&nbsp;cycle<br>
+these&nbsp;inputs,&nbsp;always&nbsp;moving&nbsp;the&nbsp;one&nbsp;a&nbsp;spot,&nbsp;to&nbsp;force&nbsp;the&nbsp;motor&nbsp;to&nbsp;rotate.<br>
+&nbsp;<br>
+By&nbsp;create&nbsp;a&nbsp;sequence&nbsp;of&nbsp;we&nbsp;move&nbsp;the&nbsp;1&nbsp;forward&nbsp;of&nbsp;backward&nbsp;1&nbsp;spot&nbsp;every&nbsp;step,<br>
+which&nbsp;allows&nbsp;the&nbsp;wheel&nbsp;to&nbsp;move&nbsp;forward&nbsp;or&nbsp;backward.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Motor-__init__"><strong>__init__</strong></a>(self, pins, modifier=1)</dt><dd><tt>Requires&nbsp;the&nbsp;GPIO&nbsp;pins&nbsp;and&nbsp;in&nbsp;the&nbsp;constructor.<br>
+Optionally&nbsp;a&nbsp;modifier&nbsp;can&nbsp;be&nbsp;set&nbsp;to&nbsp;-1&nbsp;to&nbsp;always&nbsp;invert&nbsp;the&nbsp;wheel&nbsp;direction<br>
+(in&nbsp;case&nbsp;it's&nbsp;assembled&nbsp;the&nbsp;wrong&nbsp;way&nbsp;around)</tt></dd></dl>
+
+<dl><dt><a name="Motor-backward"><strong>backward</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Motor-forward"><strong>forward</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Motor-take_step"><strong>take_step</strong></a>(self)</dt><dd><tt>Take&nbsp;a&nbsp;step&nbsp;with&nbsp;the&nbsp;motor.&nbsp;<br>
+&nbsp;<br>
+It&nbsp;cycles&nbsp;through&nbsp;all&nbsp;4&nbsp;inputs&nbsp;and&nbsp;checks&nbsp;the&nbsp;sequence.&nbsp;If&nbsp;the&nbsp;sequence<br>
+has&nbsp;a&nbsp;1&nbsp;on&nbsp;the&nbsp;pins&nbsp;spot&nbsp;([0,&nbsp;1,&nbsp;2,&nbsp;3])&nbsp;it&nbsp;sets&nbsp;that&nbsp;GPIO&nbsp;pin&nbsp;to&nbsp;True,&nbsp;else<br>
+it&nbsp;sets&nbsp;it&nbsp;to&nbsp;False.<br>
+&nbsp;<br>
+Changing&nbsp;the&nbsp;True&nbsp;input&nbsp;1&nbsp;pin&nbsp;each&nbsp;time&nbsp;allows&nbsp;the&nbsp;motor&nbsp;to&nbsp;rotate</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="MotorController">class <strong>MotorController</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#MotorController">MotorController</a>&nbsp;class&nbsp;to&nbsp;control&nbsp;both&nbsp;wheels&nbsp;to&nbsp;create&nbsp;direction.<br>
+&nbsp;<br>
+Creates&nbsp;2&nbsp;motor&nbsp;objects&nbsp;with&nbsp;the&nbsp;assigned&nbsp;GPIO&nbsp;pins.&nbsp;Both&nbsp;motors&nbsp;are&nbsp;called<br>
+every&nbsp;time&nbsp;a&nbsp;direction&nbsp;is&nbsp;set.&nbsp;Either&nbsp;both&nbsp;go&nbsp;forward&nbsp;or&nbsp;one&nbsp;goes&nbsp;backward<br>
+and&nbsp;one&nbsp;forward&nbsp;(to&nbsp;turn)<br>
+&nbsp;<br>
+Also&nbsp;contains&nbsp;motor&nbsp;control&nbsp;for&nbsp;during&nbsp;the&nbsp;IntersectionState&nbsp;where&nbsp;the&nbsp;bot<br>
+has&nbsp;to&nbsp;execute&nbsp;a&nbsp;longer&nbsp;move.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="MotorController-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="MotorController-go_forward"><strong>go_forward</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="MotorController-go_left"><strong>go_left</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="MotorController-go_right"><strong>go_right</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="MotorController-turn_ahead"><strong>turn_ahead</strong></a>(self)</dt><dd><tt>#&nbsp;Go&nbsp;1/8&nbsp;of&nbsp;a&nbsp;wheel&nbsp;rotation&nbsp;forward</tt></dd></dl>
+
+<dl><dt><a name="MotorController-turn_left"><strong>turn_left</strong></a>(self)</dt><dd><tt>#&nbsp;Go&nbsp;1/8&nbsp;of&nbsp;a&nbsp;wheel&nbsp;rotation&nbsp;forward<br>
+#&nbsp;Then&nbsp;go&nbsp;1/4&nbsp;of&nbsp;a&nbsp;wheel&nbsp;rotation&nbsp;to&nbsp;the&nbsp;left</tt></dd></dl>
+
+<dl><dt><a name="MotorController-turn_right"><strong>turn_right</strong></a>(self)</dt><dd><tt>#&nbsp;Go&nbsp;1/8&nbsp;of&nbsp;a&nbsp;wheel&nbsp;rotation&nbsp;forward<br>
+#&nbsp;Then&nbsp;go&nbsp;1/4&nbsp;of&nbsp;a&nbsp;wheel&nbsp;rotation&nbsp;to&nbsp;the&nbsp;right</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>
